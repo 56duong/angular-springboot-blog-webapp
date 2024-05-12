@@ -1,0 +1,14 @@
+<div [routerLink]="canEdit ? [] : ['./posts/' + post.id]" class="border-1 border-solid p-4 flex flex-column h-full">
+  <div class="flex justify-content-between">
+    <small *ngIf="post.createdBy">{{post.createdBy | userIdToName | async}}</small>
+    <small>{{post.createdDate | date:'HH:mm:ss dd/MM/yyyy'}}</small>
+  </div>
+  <h2 class="text-xl">{{post.title}}</h2>
+  <div class="flex gap-1">
+    <p-tag *ngFor="let tag of post.tags" [value]="tag" [rounded]="true"></p-tag>
+  </div>
+  <div *ngIf="canEdit" class="mt-2 flex gap-2 justify-content-end">
+    <p-button (click)="isEditing.emit()" label="Edit" severity="success"></p-button>
+    <p-button [routerLink]="['./posts/' + post.id]" label="Details" severity="primary"></p-button>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="flex align-items-center justify-content-center gap-2">
+  <i style="font-size: 22px;" class="cursor-pointer pi"
+    ngClass="{{ isLiked ? 'pi-heart-fill text-red-500' : 'pi-heart'}}"
+    (click)="toggleLike()"></i>
+  <p>{{count}} likes</p>
+</div>

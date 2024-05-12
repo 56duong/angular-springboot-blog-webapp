@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  font-size: 14px;
+}
+
+body {
+  padding: 1rem;
+  margin: 0;
+}
+
+.card {
+  background: var(--surface-card);
+  border: var(--card-border);
+  border-radius: 10px;
+}

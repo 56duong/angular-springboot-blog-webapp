@@ -1,0 +1,16 @@
+<div>
+  <div class="m-auto col-12 xl:col-8 flex justify-content-between align-items-center">
+    <img [routerLink]="['/']" style="width: 64px;" src="https://angular.io/assets/images/logos/angular/angular.svg" alt="">
+    <div *ngIf="currentUsername"
+      class="flex align-items-center gap-2">
+      <p [routerLink]="['./staff']">{{currentUsername}}</p>
+      <p-button (click)="logout()" label="Logout"></p-button>
+    </div>
+    <div *ngIf="!currentUsername">
+      <p-button [routerLink]="['./login']" label="Login"></p-button>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<router-outlet></router-outlet>

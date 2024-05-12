@@ -1,0 +1,16 @@
+<h2 class="mb-3 mt-5 text-center text-4xl">FEEDS</h2>
+
+<p-dataView #dv [value]="posts" [layout]="'grid'"
+  [rows]="9" [paginator]="true">
+  <ng-template let-product pTemplate="grid" let-posts>
+      <div class="grid grid-nogutter">
+          <div class="col-12 sm:col-12 md:col-6 lg:col-6 xl:col-4 p-2" *ngFor="let post of posts">
+            <!-- Post -->
+            <app-post
+              [post]="post"
+              [canEdit]="false"
+            ></app-post>
+          </div>
+      </div>
+  </ng-template>
+</p-dataView>

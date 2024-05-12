@@ -1,0 +1,40 @@
+<form [formGroup]="signupForm" class="card m-auto col-12 sm:col-6 flex flex-column align-items-stretch">
+  <h1 class="text-center">Signup</h1>
+  <small class="text-red-500">{{message}}</small>
+
+  <div class="flex flex-column gap-2 mt-4">
+    <label>Email</label>
+    <input pInputText id="email" formControlName="email">
+    <div class="text-red-500" *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)">
+      <small *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</small>
+      <small *ngIf="signupForm.get('email')?.errors?.['email']">Invalid email format</small>
+    </div>
+  </div>
+
+  <div class="flex flex-column gap-2 mt-4">
+    <label>Fullname</label>
+    <input pInputText id="email" formControlName="fullname">
+  </div>
+
+  <div class="flex flex-column gap-2 mt-4">
+      <label>Password</label>
+      <p-password formControlName="password" [feedback]="false" [style]="{'width': '100%'}" [inputStyle]="{'width': '100%'}" />
+      <div class="text-red-500" *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)">
+        <small *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</small>
+      </div>
+  </div>
+
+  <div class="flex flex-column gap-2 mt-4">
+      <label>Password Confirm</label>
+      <p-password formControlName="passwordConfirm" [feedback]="false" [style]="{'width': '100%'}" [inputStyle]="{'width': '100%'}" />
+      <div class="text-red-500" *ngIf="signupForm.get('passwordConfirm')?.invalid && (signupForm.get('passwordConfirm')?.dirty || signupForm.get('passwordConfirm')?.touched)">
+        <small *ngIf="signupForm.get('passwordConfirm')?.errors?.['required']">Password Confirm is required</small>
+        <small *ngIf="signupForm.get('passwordConfirm')?.errors?.['passwordMatchValidator']">Password does not match</small>
+      </div>
+  </div>
+
+  <p-button [disabled]="signupForm.invalid" (click)="onSignup()" label="Signup" severity="primary" class="m-auto my-4"></p-button>
+
+  <p [routerLink]="['/']" class="underline cursor-pointer text-center">Back to Home</p>
+  <p [routerLink]="['/signup']" class="underline cursor-pointer text-center">Login</p>
+</form>

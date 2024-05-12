@@ -1,0 +1,69 @@
+<p-dataView #dv [value]="posts" [layout]="'grid'"
+  [rows]="6" [paginator]="true">
+  <ng-template pTemplate="header">
+      <div class="flex justify-content-end">
+        <p-button (click)="openDialogNew()" label="Write" severity="success"></p-button>
+      </div>
+  </ng-template>
+  <ng-template let-product pTemplate="grid" let-posts>
+      <div class="grid grid-nogutter">
+          <div class="col-12 sm:col-12 md:col-6 lg:col-6 xl:col-4 p-2" *ngFor="let post of posts">
+            <!-- Post -->
+            <app-post
+              [post]="post"
+              [canEdit]="true"
+              (isEditing)="openDialogEdit(post)"
+            ></app-post>
+          </div>
+      </div>
+  </ng-template>
+</p-dataView>
+
+<!-- FORM -->
+<p-dialog header="Post details" [(visible)]="isVisible" [modal]="true" [style]="{ width: '80vw' }" [draggable]="false" [resizable]="false">
+  <ng-template pTemplate="content">
+      <div *ngIf="isEdit" class="flex flex-column gap-2 mb-4">
+          <label for="id">ID</label>
+          <input pInputText id="id" [(ngModel)]="post.id" readonly>
+      </div>
+      <div class="flex flex-column gap-2 mb-4">
+          <label for="title">Title</label>
+          <input pInputText id="title" [(ngModel)]="post.title">
+      </div>
+      <div class="flex flex-column gap-2 mb-4">
+          <label for="tags">Tags</label>
+          <p-chips [(ngModel)]="post.tags"></p-chips>
+      </div>
+      <div class="flex flex-column gap-2 mb-4">
+          <label for="content">Content</label>
+          <p-editor [(ngModel)]="post.content" [style]="{ height: '320px' }"></p-editor>
+      </div>
+      <ng-container *ngIf="isEdit">
+          <div class="flex flex-column gap-2 mb-4">
+              <label for="createdDate">Created Date</label>
+              <input pInputText id="createdDate" [(ngModel)]="post.createdDate" readonly>
+          </div>
+          <div class="flex flex-column gap-2 mb-4">
+              <label for="createdBy">Created By</label>
+              <input pInputText id="createdBy" [(ngModel)]="post.createdBy" readonly>
+          </div>
+          <div class="flex flex-column gap-2 mb-4">
+              <label for="lastModifiedDate">Last Modified Date</label>
+              <input pInputText id="lastModifiedDate" [(ngModel)]="post.lastModifiedDate" readonly>
+          </div>
+          <div class="flex flex-column gap-2 mb-4">
+              <label for="lastModifiedBy">Last Modified By</label>
+              <input pInputText id="lastModifiedBy" [(ngModel)]="post.lastModifiedBy" readonly>
+          </div>
+      </ng-container>
+      <div class="flex justify-content-end gap-2 mb-4">
+          <p-button (click)="delete($event)" label="Delete" severity="danger"></p-button>
+          <p-button (click)="save()" label="Save" severity="success"></p-button>
+      </div>
+  </ng-template>
+</p-dialog>
+
+<!-- TOAST -->
+<p-toast></p-toast>
+
+<p-confirmDialog></p-confirmDialog>

@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  gap: 1rem;
+}
+
+::ng-deep .p-sidebar {
+  position: sticky;
+  top: 1rem;
+  height: calc(100vh - 2rem);
+  max-height: calc(100vh - 2rem);
+  padding: 1rem;
+  transition: 0s;
+}
+
+.container {
+  flex: auto;
+}

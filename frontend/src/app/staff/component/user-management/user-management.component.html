@@ -1,0 +1,118 @@
+
+<div class="card">
+  <p-table
+      #usertable
+      [value]="users"
+      [globalFilterFields]="['fullname', 'email']"
+      [tableStyle]="{ 'min-width': '75rem' }"
+      >
+      <!-- Header -->
+      <ng-template pTemplate="caption">
+          <div class="flex">
+            <p-button (click)="openDialogNew()" label="New" severity="success" icon="pi pi-plus"></p-button>
+              <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input #search pInputText type="text" (input)="usertable.filterGlobal(search.value, 'contains')" placeholder="Search..." />
+              </span>
+          </div>
+      </ng-template>
+      <!-- Column name -->
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Email</th>
+              <th>Fullname</th>
+              <th>Role</th>
+              <th>Status</th>
+          </tr>
+          <tr>
+              <th></th>
+              <th></th>
+              <th>
+                  <p-columnFilter field="roleId" matchMode="equals" [showMenu]="false">
+                      <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                          <p-dropdown 
+                            [ngModel]="value" 
+                            [options]="roles"
+                            optionLabel="name"
+                            optionValue="id" 
+                            (onChange)="filter($event.value)"
+                            [showClear]="true">
+                          </p-dropdown>
+                      </ng-template>
+                  </p-columnFilter>
+              </th>
+              <th>
+                  <p-columnFilter type="boolean" field="active"></p-columnFilter>
+              </th>
+          </tr>
+      </ng-template>
+      <!-- Body -->
+      <ng-template pTemplate="body" let-user>
+          <tr class="cursor-pointer" (dblclick)="openDialogEdit(user)">
+              <td>{{ user.email }}</td>
+              <td>{{ user.fullname }}</td>
+              <td>{{ getRole(user.roleId) }}</td>
+              <td>
+                  <i class="pi" [ngClass]="{ 'text-green-500 pi-check-circle': user.active, 'text-red-500 pi-times-circle': !user.active }"></i>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
+
+<!-- FORM -->
+<p-dialog header="User details" [(visible)]="isVisible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="content">
+        <div *ngIf="isEdit" class="flex flex-column gap-2 mb-4">
+            <label for="id">ID</label>
+            <input pInputText id="id" [(ngModel)]="user.id" readonly>
+        </div>
+        <div class="flex flex-column gap-2 mb-4">
+            <label for="role">Role</label>
+            <p-dropdown [options]="roles" [(ngModel)]="user.roleId" 
+                optionLabel="name" optionValue="id"></p-dropdown>
+        </div>
+        <div class="flex flex-column gap-2 mb-4">
+            <label for="role">Status</label>
+            <p-selectButton [options]="[{label: 'Active', value: true}, {label: 'Disable', value: false}]" 
+                [(ngModel)]="user.active" optionLabel="label" optionValue="value"></p-selectButton>
+        </div>
+        <div class="flex flex-column gap-2 mb-4">
+            <label for="email">Email</label>
+            <input pInputText id="email" [(ngModel)]="user.email">
+        </div>
+        <div *ngIf="!isEdit" class="flex flex-column gap-2 mb-4">
+            <label for="password">Password</label>
+            <p-password [(ngModel)]="user.password" [feedback]="false" [style]="{'width': '100%'}" [inputStyle]="{'width': '100%'}" />
+        </div>
+        <div class="flex flex-column gap-2 mb-4">
+            <label for="fullname">Fullname</label>
+            <input pInputText id="fullname" [(ngModel)]="user.fullname">
+        </div>
+        <ng-container *ngIf="isEdit">
+            <div class="flex flex-column gap-2 mb-4">
+                <label for="createdDate">Created Date</label>
+                <input pInputText id="createdDate" [(ngModel)]="user.createdDate" readonly>
+            </div>
+            <div class="flex flex-column gap-2 mb-4">
+                <label for="createdBy">Created By</label>
+                <input pInputText id="createdBy" [(ngModel)]="user.createdBy" readonly>
+            </div>
+            <div class="flex flex-column gap-2 mb-4">
+                <label for="lastModifiedDate">Last Modified Date</label>
+                <input pInputText id="lastModifiedDate" [(ngModel)]="user.lastModifiedDate" readonly>
+            </div>
+            <div class="flex flex-column gap-2 mb-4">
+                <label for="lastModifiedBy">Last Modified By</label>
+                <input pInputText id="lastModifiedBy" [(ngModel)]="user.lastModifiedBy" readonly>
+            </div>
+        </ng-container>
+        <div class="flex justify-content-end gap-2 mb-4">
+            <p-button (click)="isVisible = false" label="Cancel" severity="danger"></p-button>
+            <p-button (click)="save()" label="Save" severity="success"></p-button>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<!-- TOAST -->
+<p-toast></p-toast>

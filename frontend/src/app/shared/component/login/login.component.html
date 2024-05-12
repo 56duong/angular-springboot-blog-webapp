@@ -1,0 +1,17 @@
+<div class="card m-auto col-12 sm:col-6 flex flex-column align-items-stretch">
+  <h1 class="text-center">Login</h1>
+  <small ngClass="{{type === 'success' ? 'text-green-500' : 'text-red-500'}}">{{message}}</small>
+  <div class="flex flex-column gap-2 my-4">
+    <label for="email">Email</label>
+    <input pInputText id="email" [(ngModel)]="login.email">
+  </div>
+  <div class="flex flex-column gap-2 mb-4">
+      <label for="password">Password</label>
+      <p-password [(ngModel)]="login.password" [feedback]="false" [style]="{'width': '100%'}" [inputStyle]="{'width': '100%'}" />
+  </div>
+
+  <p-button (click)="onLogin()" label="Login" severity="primary" class="m-auto mb-4"></p-button>
+
+  <p [routerLink]="['/']" class="underline cursor-pointer text-center">Back to Home</p>
+  <p [routerLink]="['/signup']" class="underline cursor-pointer text-center">Signup</p>
+</div>
