@@ -1,0 +1,6 @@
+id	active	created_by	created_date	email	fullname	last_modified_by	last_modified_date	password	role_id
+0a54a9f6-bd4c-4638-ab12-a02422922a5f	true	5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	2024-05-02 16:05:38.299457	user1@gmail.com	user1	5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	2024-05-02 16:05:38.299457	$2a$10$SvWnm37/yIiDDEIuxllHkuJTP9p5IPZT0h5bSynYzmCUUAWd5CMxi	1
+3caac38d-379b-437f-9d4e-da752bf125fc	true	5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	2024-05-02 16:08:05.960562	user2@gmail.com	user2	5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	2024-05-02 16:08:05.960562	$2a$10$Z99Pfjy0liemOjvAjl.WxO43BZIMhQKs1U0x1S0XvFkIZyxpamV2C	1
+5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	true		2024-05-02 16:01:55.477068	admin@gmail.com	admin@gmail.com		2024-05-02 16:01:55.477068	$2a$10$KnFS7R222HMEEDT0jYJB7.TLjcHqoqisjIpcxUulr6tR5Un5VNoqy	2
+636ffe7b-c373-41eb-bd41-877096c81378	true	5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	2024-05-02 16:05:15.643299	user@gmail.com	user	5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	2024-05-02 16:05:15.643299	$2a$10$RfMgmRNblT0kGAVIQ.WvKeZAyUvqAtDgsbzklQQ4kxvkDqYP7Cz5i	1
+f79f5d7e-5e0b-4f4d-919a-c778ebb1faf2	true	5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	2024-05-02 16:05:28.629701	staff@gmail.com	staff	5d99ca4f-ebf6-43e1-916b-f9020b9b29b1	2024-05-02 16:07:50.025574	$2a$10$KnFS7R222HMEEDT0jYJB7.TLjcHqoqisjIpcxUulr6tR5Un5VNoqy	2
