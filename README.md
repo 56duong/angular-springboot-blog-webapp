@@ -4,6 +4,25 @@ The application allows users to read blog posts, login or signup to like a post,
 
 While the code may not be perfect and may still contain bugs, the goal is to provide a practical, hands-on experience in building a real-world application. Your feedback and contributions are always welcome.
 
+
+# Table of Contents
+1. [Demo](#demo)
+2. [Features](#features)
+3. [Tech Stack Versions](#tech-stack-versions)
+4. [YouTube Series](#youtube-series)
+5. [File Tree](#file-tree)
+6. [Configuration](#configuration)
+7. [Getting Started](#getting-started)
+8. [Build and Deployment](#build-and-deployment)
+9. [Who i am?](#who-i-am)
+10. [License](#license)
+11. [Contact](#contact)
+
+
+## 🎥 Demo
+[![PostShare](https://github.com/56duong/angular-springboot-blog-webapp/assets/77065902/58714ef0-01c8-441e-be85-5da51b469809)](https://youtu.be/FJDRKFNwubs?t=80&si=t7TiaLit9I77-UMY)
+
+
 ## 🌟 Features
 
 - **User Authentication**: Secure authentication using JWT tokens for user login and signup.
@@ -38,7 +57,81 @@ Please note that the versions listed below are the ones used during the developm
 - **Electron**: 30.0.2
   
 - **Capacitor**: 6.0.0
-  
+
+
+## 🎥 YouTube Series
+
+This project is part of my [YouTube series](https://www.youtube.com/playlist?list=PLvEvS4scurJxs8_LILX2YxjV1pViXiv76), where I document the development process and share insights on building real-world applications. You can follow along with the series to view more about the application's architecture, implementation details, and best practices.
+
+
+## 📁 File Tree
+<pre>
+PostShare
+├───backend
+│   ├───src
+│   │   └───main
+│   │       ├───java
+│   │       │   └───org
+│   │       │       └───duong
+│   │       │           └───backend
+│   │       │               ├───config
+│   │       │               ├───controller
+│   │       │               ├───dto
+│   │       │               ├───enums
+│   │       │               ├───exception
+│   │       │               ├───filter
+│   │       │               ├───model
+│   │       │               ├───repository
+│   │       │               └───service
+│   │       └───resources
+│   │           ├───static
+│   │           └───templates
+│   │           └───application.properties
+│   └───target
+│       ├───backend-0.0.1-SNAPSHOT.jar
+│       ├───...
+├───frontend
+│   ├───android
+│   │   ├───app
+│   │   ├───release
+│   │   │   ├───app-release.apk
+│   │   │   ├───...
+│   │   └───...
+│   ├───dist
+│   │   └───frontend
+│   ├───PostShare-win32-x64
+│   │   ├───PostShare.exe
+│   │   └───...
+│   └───src
+│       ├───app
+│       │   ├───core
+│       │   │   ├───config
+│       │   │   ├───guard
+│       │   │   ├───interceptor
+│       │   │   ├───interface
+│       │   │   ├───pipe
+│       │   │   └───service
+│       │   ├───shared
+│       │   │   └───component
+│       │   │       ├───like-button
+│       │   │       ├───login
+│       │   │       ├───not-found
+│       │   │       ├───post
+│       │   │       ├───post-details
+│       │   │       └───signup
+│       │   ├───staff
+│       │   │   └───component
+│       │   │       ├───feed
+│       │   │       └───user-management
+│       │   └───user
+│       │       └───component
+│       │           └───feed
+│       └───assets
+├───installer
+│       ├───postshare-1.0.2.exe
+│       └───scripts.iss
+└───tsv
+</pre>
 
 ## ⚙️ Configuration
 
@@ -116,7 +209,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## 🔧 Build and Deployment
 
-**1. Deploy MySQL Database to Azure**: Watch my [video]() for setup.
+**1. Deploy MySQL Database to Azure**: Watch my [video](https://youtu.be/kc0h2kc8uHQ?si=CldxUY_opymEkcg9) for setup.
 
 **2. Angular Build and Copy Files to `resources/static`**:
    
@@ -131,7 +224,7 @@ These instructions will get you a copy of the project up and running on your loc
   docker push your-dockerhub-username/your-image-name
   ```
 
-**4. Deploy Container to Azure**: Watch my [video]() for setup.
+**4. Deploy Container to Azure**: Watch my [video](https://youtu.be/Ivh9LUXARDc?si=g2Dv2Md8o8EIreRC) for setup.
 
 **5. Mobile App Export**: Use Capacitor to prepare your app for mobile app.
    
@@ -198,11 +291,11 @@ A young developer, who dedicated to developing usable apps, not just 'homework a
 I delight in sharing my knowledge and experiences, hoping to inspire others to embark on their own journey in application development. Also, I have a fondness for sour soup :bowl_with_spoon:.
 
 
-## License
+## :balance_scale: License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/56duong/angular-springboot-blog-webapp/blob/master/LICENSE) file for details.
 
 
-## Contact
+## :incoming_envelope: Contact
 
 If you want to contact me you can reach me at <56duong@gmail.com>. If you'd like to contribute, please fork the repository and use a pull request for changes.
