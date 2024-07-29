@@ -12,7 +12,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "electron": "electron .",
-    "electron-build": "ng build --base-href ./ && electron ."
+    "electron-build": "ng build --base-href ./ && electron .",
+    "electron-pack": "electron-packager ./ PostShare --platform=win32 --ignore=\"/(node_modules|\\.angular|android|src)\" --overwrite"
   },
   "private": true,
   "dependencies": {
